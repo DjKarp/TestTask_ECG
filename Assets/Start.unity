@@ -168,6 +168,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11480962, guid: 59e6d8e8602973b448a2f2eddd7afee0, type: 3}
+      propertyPath: shootPoint
+      value: 
+      objectReference: {fileID: 1262217986}
+    - target: {fileID: 11480962, guid: 59e6d8e8602973b448a2f2eddd7afee0, type: 3}
       propertyPath: m_shootPoint
       value: 
       objectReference: {fileID: 1262217986}
@@ -415,9 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbdcd4a28493d6543aa0ab3dec6c1d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_interval: 2
-  m_moveTarget: {fileID: 1793304109}
-  m_MonsterGoList: []
+  spawnInterval: 3
+  moveTarget: {fileID: 1793304109}
 --- !u!4 &780892721
 Transform:
   m_ObjectHideFlags: 0
@@ -714,7 +717,7 @@ Transform:
   m_GameObject: {fileID: 1262217985}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.399, z: 1.467}
+  m_LocalPosition: {x: 0, y: 1.399, z: 1.878}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -745,7 +748,7 @@ Transform:
   m_GameObject: {fileID: 1793304109}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.23, y: 2.01, z: 6.5}
+  m_LocalPosition: {x: -17.98, y: 2.01, z: 6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -895,10 +898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebddef33c1146ee4dbee2a0f72098ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 0.5
-  range: 4
-  projectilePrefab: {fileID: 0}
-  m_TowersScriptableObject: {fileID: 0}
 --- !u!4 &1920609368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 468124, guid: 830335a0271cb1f4e917235d09b51e8d, type: 3}
