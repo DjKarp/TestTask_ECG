@@ -15,7 +15,7 @@ public class GuidedTower : Tower
 	{
 		var projectile = m_ObjectPool.Get();
 		projectile.transform.SetPositionAndRotation(transform.position + Vector3.up * 1.5f, Quaternion.identity);
-		m_Projectile = projectile.GetComponent<GuidedProjectile>();
+		m_Projectile = projectile.GetComponent<GuidedProjectile>(); // Можно создать более специализированный пул для объектов GetComponent, чтобы сразу можно было обращаться к Projectile. Чтобы не GetComponent'тить
 		m_Projectile.SetTarget(Target);
 		m_Projectile.SetObjectPool(m_ObjectPool);
 	}

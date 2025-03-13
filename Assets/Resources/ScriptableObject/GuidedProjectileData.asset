@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GuidedProjectileData
   m_EditorClassIdentifier: 
   Speed: 0.15
-  Damage: 10
+  Damage: 8

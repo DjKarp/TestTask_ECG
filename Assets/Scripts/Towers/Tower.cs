@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Почти все поля и методы остались в абстрактном классе. И для показа возможного расширения этотго класса, создан интерфейс для поворотных башен. 
 public abstract class Tower : MonoBehaviour
 {
     protected float _shootInterval;
@@ -14,6 +15,7 @@ public abstract class Tower : MonoBehaviour
 
     protected void Init()
     {
+        // Инициализируем параметры каждой башни, используя ScriptableObject, для примера. Так ГеймДизайнеру удобно тестировать, создавая разные ScriptableObject.
         Init(m_TowersScriptableObject.ShootInterval, m_TowersScriptableObject.Range, m_TowersScriptableObject.LastShotTime, m_TowersScriptableObject.ProjectilePrefab);
 
         m_ObjectPool = new ObjectPool(m_TowersScriptableObject.ProjectilePrefab, 1);

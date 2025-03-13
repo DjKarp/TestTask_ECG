@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// При желании и этот класс легко сделать абстрактным. Но сейчас это не нужно, так как в задании один только вид Monster
 public class Monster : MonoBehaviour 
 {
 	const float ReachDistance = 0.3f;

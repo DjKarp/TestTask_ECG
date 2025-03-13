@@ -5,21 +5,19 @@ public class CannonProjectile : Projectile
 {
 	protected Rigidbody m_Rigidbody;
 
-    private void Awake()
+	// Переопределяем Awake для кеширования компонента Rigidbody
+	protected override void Awake()
 	{
-		m_ProjectileSO = Resources.Load<ProjectileScriptableObject>("ScriptableObject/CannonProjectileData");
-		Init();
-
+		base.Awake();
 		m_Rigidbody = GetComponent<Rigidbody>();
 	}
 
 	public override void Move()
 	{
-		
 	}
 
 	public void AddRelativeForce(Vector3 direction)
     {
-		m_Rigidbody.AddRelativeForce(direction * 2000.0f, ForceMode.Acceleration);
+		m_Rigidbody.velocity = direction * _speed;
 	}
 }

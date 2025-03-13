@@ -4,16 +4,9 @@ using System.Collections;
 public class GuidedProjectile : Projectile
 {
 	public GameObject target;
-
 	private Vector3 translation;
 
-	private void Awake()
-	{
-		m_ProjectileSO = Resources.Load<ProjectileScriptableObject>("ScriptableObject/GuidedProjectileData");
-		Init();
-	}
-
-	public override void Move()
+    public override void Move()
 	{
 		if (!target.activeSelf)
 			DestroyProjectile();

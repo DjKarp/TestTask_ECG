@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Spawner : MonoBehaviour 
 {
+	// Для примера сделал этот скрипт одиночкой (Singleton)
 	public static Spawner instance = null;
 
 	private float spawnInterval = 3;
@@ -14,17 +15,10 @@ public class Spawner : MonoBehaviour
 	private GameObject tempNewMonster;
 	private Monster m_Monster;
 
-	private float tempDistance;
-
 	private void Awake()
     {
-		if (instance == null)
-			instance = this;
-		else if (instance == this)
-			Destroy(gameObject);
-
-		// Теперь нам нужно указать, чтобы объект не уничтожался
-		// при переходе на другую сцену игры
+		if (instance == null) instance = this;
+		else if (instance == this) Destroy(gameObject);
 		DontDestroyOnLoad(gameObject);
 
 		tempNewMonster = GameObject.CreatePrimitive(PrimitiveType.Capsule);
@@ -34,8 +28,10 @@ public class Spawner : MonoBehaviour
 		m_Monster = tempNewMonster.AddComponent<Monster>();
 		m_Monster.SetMonsterSpawner(this);
 
+		// Создаю объект пула с одной еденицей в списке. Чтобы было видно, что создаются новые экземпляры, когда нужно. 
 		m_ObjectPool = new ObjectPool(tempNewMonster, 1);
 
+		// Добален для примера поиск по тегу
 		if (moveTarget == null)
 			moveTarget = GameObject.FindGameObjectWithTag("MoveTarget");
 	}
@@ -68,6 +64,8 @@ public class Spawner : MonoBehaviour
     {
 		return moveTarget.transform.position;
     }
+
+	// Передаём последнего созданного Monster. Можно заменить здесь на поиск ближайшего, например. Надо просто передавать позицию ищущего 
 	public Transform FindClosestEnemyTR()
 	{
 		return tempNewMonster != null ? tempNewMonster.transform : null;

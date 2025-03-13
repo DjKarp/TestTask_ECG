@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Пул объектов. Можно добавлять любой GameObject - я использовал его для 2х видов снарядов и Monster
 public class ObjectPool : MonoBehaviour
 {
     private GameObject poolPrefab;
