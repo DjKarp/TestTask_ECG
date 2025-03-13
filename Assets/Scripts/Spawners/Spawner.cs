@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
 
 	private float spawnInterval = 3;
 	[SerializeField] private GameObject moveTarget;
+	[SerializeField] private Material capsulaMaterial;
 
 	private float lastSpawn = -1;
 
@@ -22,6 +23,7 @@ public class Spawner : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 
 		tempNewMonster = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+		tempNewMonster.GetComponent<MeshRenderer>().material = capsulaMaterial;
 		tempNewMonster.transform.position = transform.position;
 		Rigidbody m_Rigidbody = tempNewMonster.AddComponent<Rigidbody>();
 		m_Rigidbody.useGravity = false;

@@ -15,6 +15,9 @@ public class Monster : MonoBehaviour
 	private void Awake()
     {
 		Init();
+
+		if (!Application.isEditor)
+			speed += 0.05f;
 	}
 
 	public void Init()
