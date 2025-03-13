@@ -10,6 +10,8 @@ public class CannonProjectile : Projectile
 	{
 		base.Awake();
 		m_Rigidbody = GetComponent<Rigidbody>();
+		m_Rigidbody.useGravity = true;
+		m_Rigidbody.mass *= 100.0f;
 	}
 
 	public override void Move()
@@ -18,6 +20,6 @@ public class CannonProjectile : Projectile
 
 	public void AddRelativeForce(Vector3 direction)
     {
-		m_Rigidbody.velocity = direction * _speed;
+		m_Rigidbody.velocity = direction * _speed / 12.0f;
 	}
 }

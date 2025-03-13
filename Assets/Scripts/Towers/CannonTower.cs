@@ -58,7 +58,7 @@ public class CannonTower : Tower, IRotable
 
 		//Поворачиваем разные Child по разным осям
 		RotateHorizGO.rotation = Quaternion.RotateTowards(RotateHorizGO.rotation, new Quaternion(0.0f, rotateToActual.y, rotateToActual.z, rotateToActual.w), RotationSpeed * Time.deltaTime);
-		RotateVertGO.rotation = Quaternion.RotateTowards(RotateVertGO.rotation, new Quaternion(rotateToActual.x, RotateHorizGO.rotation.y, RotateHorizGO.rotation.z, RotateHorizGO.rotation.w), RotationSpeed * Time.deltaTime);
+		//RotateVertGO.rotation = Quaternion.RotateTowards(RotateVertGO.rotation, new Quaternion(rotateToActual.x, RotateHorizGO.rotation.y, RotateHorizGO.rotation.z, RotateHorizGO.rotation.w), RotationSpeed * Time.deltaTime);
 	}
 
 	private void FindTarget()
