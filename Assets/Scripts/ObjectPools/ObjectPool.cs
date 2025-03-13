@@ -8,7 +8,6 @@ public class ObjectPool : MonoBehaviour
     private List<GameObject> listGameObject;
 
     private GameObject tempCreatePoolObj;
-    private GameObject tempGetPoolObj;
 
     public ObjectPool(GameObject prefab, int prewarmCountObjects)
     {
@@ -25,14 +24,14 @@ public class ObjectPool : MonoBehaviour
 
     private GameObject Create()
     {
-        tempCreatePoolObj = Instantiate(poolPrefab);
-        listGameObject.Add(tempCreatePoolObj);
-        return tempCreatePoolObj;
+        var createPoolObj = Instantiate(poolPrefab);
+        listGameObject.Add(createPoolObj);
+        return createPoolObj;
     }
 
     public GameObject Get()
     {
-        tempGetPoolObj = null;
+        GameObject tempGetPoolObj = null;
         foreach (GameObject go in listGameObject)
         {
             if (!go.activeSelf)

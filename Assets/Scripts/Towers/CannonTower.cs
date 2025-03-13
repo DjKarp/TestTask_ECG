@@ -16,6 +16,6 @@ public class CannonTower : Tower
 		GameObject bullet = m_ObjectPool.Get();
 		bullet.transform.SetPositionAndRotation(shootPoint.position, shootPoint.rotation);
 
-		Debug.LogError("CannonTower Shoot");
+		//Debug.LogError("CannonTower Shoot");
 	}
 }

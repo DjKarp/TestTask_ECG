@@ -21,14 +21,20 @@ public abstract class Projectile : MonoBehaviour
         _damage = Damage;
     }
 
+    protected void DestroyProjectile()
+    {
+        m_ObjectPool.Release(gameObject);
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        Debug.LogError(m_ProjectileSO.name + " -> Hit on Target");
+        //Debug.LogError(m_ProjectileSO.name + " -> Hit on Target");
+
         var monster = other.gameObject.GetComponent<Monster>();
         if (monster != null)
         {
             monster.AddedDamage(_damage);
-            m_ObjectPool.Release(gameObject);
+            DestroyProjectile();
         }
     }
 

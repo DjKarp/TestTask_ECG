@@ -19,6 +19,6 @@ public class GuidedTower : Tower
 		m_Projectile.SetTarget(Target);
 		m_Projectile.SetObjectPool(m_ObjectPool);
 
-		Debug.LogError("Guided Tower Shoot");
+		//Debug.LogError("Guided Tower Shoot");
 	}
 }

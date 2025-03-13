@@ -5,12 +5,13 @@ public class Monster : MonoBehaviour
 {
 	const float ReachDistance = 0.3f;
 
-	protected GameObject moveTarget;
 	protected float speed = 0.1f;
 	[SerializeField] protected int maxHP = 30;
 	[SerializeField] protected int HP;
 
-    private void Awake()
+	protected Spawner m_Spawner;
+
+	private void Awake()
     {
 		Init();
 	}
@@ -30,28 +31,30 @@ public class Monster : MonoBehaviour
 		HP -= Damage;
 
 		if (HP <= 0)
-			Destroy(gameObject);
+			DestroyMonster();
 	}
 
-	public void SetMoveTarget(GameObject Target)
+	public void DestroyMonster()
     {
-		moveTarget = Target;
+		m_Spawner.GetObjectPool().Release(gameObject.gameObject);
 	}
 
     private void Move()
     {
-		if (moveTarget != null)
-        {
-			if (Vector3.Distance(transform.position, moveTarget.transform.position) <= ReachDistance)
-			{
-				Destroy(gameObject);
-				return;
-			}
-
-			var translation = moveTarget.transform.position - transform.position;
-			if (translation.magnitude > speed)
-				translation = translation.normalized * speed;
-			transform.Translate(translation);
+		if (Vector3.Distance(transform.position, m_Spawner.GetMoveTargetPosition()) <= ReachDistance)
+		{
+			DestroyMonster();
+			return;
 		}
+
+		var translation = m_Spawner.GetMoveTargetPosition() - transform.position;
+		if (translation.magnitude > speed)
+			translation = translation.normalized * speed;
+		transform.Translate(translation);
+	}
+
+	public void SetMonsterSpawner(Spawner Spawner)
+    {
+		m_Spawner = Spawner;
 	}
 }

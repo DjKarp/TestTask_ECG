@@ -15,8 +15,8 @@ public class GuidedProjectile : Projectile
 
 	public override void Move()
 	{
-		if (target == null)
-			Destroy(gameObject);
+		if (!target.activeSelf)
+			DestroyProjectile();
 		else
 		{
 			translation = target.transform.position - transform.position;
