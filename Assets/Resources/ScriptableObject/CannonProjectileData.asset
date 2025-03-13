@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6e47a10cd2aea4e9c7000a72a9a75c, type: 3}
   m_Name: CannonProjectileData
   m_EditorClassIdentifier: 
-  Speed: 50
+  Speed: 4.2
   Damage: 5
