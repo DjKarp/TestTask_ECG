@@ -4781,7 +4781,7 @@ GameObject:
   - component: {fileID: 13564744}
   - component: {fileID: 2327986}
   - component: {fileID: 11464742}
-  - component: {fileID: 1994147807684733925}
+  - component: {fileID: 5066644502194869178}
   m_Layer: 0
   m_Name: CannonProjectile
   m_TagString: Untagged
@@ -4798,7 +4798,7 @@ Transform:
   m_GameObject: {fileID: 123704}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.992526, y: 4.84, z: 8.16}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4888,10 +4888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019f8dc2a5c029b4ba931342c77e6736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 0.2
-  m_damage: 10
-  m_Rigidbody: {fileID: 1994147807684733925}
---- !u!54 &1994147807684733925
+--- !u!54 &5066644502194869178
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4913,7 +4910,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

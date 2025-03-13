@@ -5,7 +5,7 @@ public class Monster : MonoBehaviour
 {
 	const float ReachDistance = 0.3f;
 
-	protected float speed = 0.1f;
+	protected float speed = 0.01f;
 	[SerializeField] protected int maxHP = 30;
 	[SerializeField] protected int HP;
 

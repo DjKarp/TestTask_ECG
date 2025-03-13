@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e79ceebe9516c4ebbf1e2ccbf1a878, type: 3}
   m_Name: GuidedTowerData
   m_EditorClassIdentifier: 
-  ShootInterval: 1
+  ShootInterval: 2
   Range: 10
   LastShotTime: -0.5
   ProjectilePrefab: {fileID: 121420, guid: 83b1bef18dd7ed947ae8f4d857327102, type: 3}

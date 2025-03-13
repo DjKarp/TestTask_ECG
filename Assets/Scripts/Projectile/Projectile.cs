@@ -28,11 +28,11 @@ public abstract class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Debug.LogError(m_ProjectileSO.name + " -> Hit on Target");
-
         var monster = other.gameObject.GetComponent<Monster>();
         if (monster != null)
         {
+            Debug.LogError("HIT!!! -> " + name);
+
             monster.AddedDamage(_damage);
             DestroyProjectile();
         }
@@ -52,5 +52,16 @@ public abstract class Projectile : MonoBehaviour
     public ObjectPool GetObjectPool()
     {
         return m_ObjectPool;
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(DeathCount());
+    }
+
+    IEnumerator DeathCount()
+    {
+        yield return new WaitForSeconds(5.0f);
+        DestroyProjectile();
     }
 }

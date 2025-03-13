@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Spawner : MonoBehaviour 
 {
+	public static Spawner instance = null;
+
 	private float spawnInterval = 3;
 	[SerializeField] private GameObject moveTarget;
 
@@ -12,16 +14,27 @@ public class Spawner : MonoBehaviour
 	private GameObject tempNewMonster;
 	private Monster m_Monster;
 
+	private float tempDistance;
+
 	private void Awake()
     {
-		GameObject tempMonsterGO = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-		tempMonsterGO.transform.position = transform.position;
-		Rigidbody m_Rigidbody = tempMonsterGO.AddComponent<Rigidbody>();
+		if (instance == null)
+			instance = this;
+		else if (instance == this)
+			Destroy(gameObject);
+
+		// Теперь нам нужно указать, чтобы объект не уничтожался
+		// при переходе на другую сцену игры
+		DontDestroyOnLoad(gameObject);
+
+		tempNewMonster = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+		tempNewMonster.transform.position = transform.position;
+		Rigidbody m_Rigidbody = tempNewMonster.AddComponent<Rigidbody>();
 		m_Rigidbody.useGravity = false;
-		m_Monster = tempMonsterGO.AddComponent<Monster>();
+		m_Monster = tempNewMonster.AddComponent<Monster>();
 		m_Monster.SetMonsterSpawner(this);
 
-		m_ObjectPool = new ObjectPool(tempMonsterGO, 1);
+		m_ObjectPool = new ObjectPool(tempNewMonster, 1);
 
 		if (moveTarget == null)
 			moveTarget = GameObject.FindGameObjectWithTag("MoveTarget");
@@ -55,4 +68,8 @@ public class Spawner : MonoBehaviour
     {
 		return moveTarget.transform.position;
     }
+	public Transform FindClosestEnemyTR()
+	{
+		return tempNewMonster != null ? tempNewMonster.transform : null;
+	}
 }
